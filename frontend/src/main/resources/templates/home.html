@@ -1,6 +1,8 @@
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>kotprotiv</title>
 	<link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
@@ -9,16 +11,16 @@
 <br>
 <h3>Some links</h3>
 <a rel="me" href="https://bsky.app/profile/kotprotiv.bsky.social">
-	<img th:src="@{/img/bluesky.jpeg}" width="100" height="100" alt="bluesky logo">
+	<img th:src="@{/img/bluesky.jpeg}" width="50" height="50" style="margin: 10px;" alt="bluesky logo">
 </a>
 <a rel="me" href="https://instagram.com/kotprotiv">
-	<img th:src="@{/img/instagram.png}" width="100" height="100" alt="instagram logo">
+	<img th:src="@{/img/instagram.png}" width="50" height="50" style="margin: 10px;" alt="instagram logo">
 </a>
 <a rel="me" href="https://last.fm/user/kotprotiv">
-	<img th:src="@{/img/lastfm.png}" width="100" height="100" alt="lastfm logo">
+	<img th:src="@{/img/lastfm.png}" width="50" height="50" style="margin: 10px;" alt="lastfm logo">
 </a>
 <a rel="me" href="https://mastodon.social/@kotprotiv">
-	<img th:src="@{/img/mastodon.png}" width="100" height="100" alt="mastodon logo">
+	<img th:src="@{/img/mastodon.png}" width="50" height="50" style="margin: 10px;" alt="mastodon logo">
 </a>
 <br>
 <h3>Obsession of the week: <span th:text="${obsession.name}"></span></h3>
@@ -28,3 +30,5 @@
 		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </body>
 </html>
+
+
