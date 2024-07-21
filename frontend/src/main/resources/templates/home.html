@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>kotprotiv</title>
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<h2>As you can see, I am not a frontend dev</h2>
+<br>
+<h3>Some links</h3>
+<ul>
+	<li><a rel="me" href="https://mastodon.social/@kotprotiv">Mastodon</a></li>
+	<li><a rel="me" href="https://bsky.app/profile/kotprotiv.bsky.social">Bluesky</a></li>
+	<li><a rel="me" href="https://last.fm/user/kotprotiv">Last.FM</a></li>
+</ul>
+<br>
+<h3>Obsession of the week: <span th:text="${obsession.name}"></span></h3>
+<iframe width="560" height="315" th:src="${obsession.url}"
+		title="YouTube video player" frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</body>
+</html>
