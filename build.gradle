@@ -6,48 +6,23 @@ plugins {
 	id 'com.diffplug.spotless' version '6.25.0'
 }
 
-apply plugin: 'java'
-
 group = 'dev.kotprotiv'
-version = '1.0.0'
+version = '1.1.0'
 
-java {
-	sourceCompatibility = JavaVersion.VERSION_21
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+
 }
-
-repositories {
-	mavenCentral()
-}
-
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	runtimeOnly 'org.springframework.boot:spring-boot-starter-actuator'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-
-	testImplementation 'junit:junit'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-tasks.named('test') {
-	useJUnitPlatform()
+subprojects {
+	java {
+		sourceCompatibility = JavaVersion.VERSION_21
+	}
 }
 
 spotless {
 	java {
 		googleJavaFormat('1.22.0')
-	}
-}
-
-jib {
-	from {
-		image = 'eclipse-temurin:21-jdk-alpine'
-	}
-	to {
-		image = 'nyttevaerdien/' + rootProject.name + ':' + version
-	}
-	container {
-		creationTime = 'USE_CURRENT_TIMESTAMP'
 	}
 }

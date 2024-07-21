@@ -1,8 +1,40 @@
 services:
   homepage:
-    image: nyttevaerdien/homepage:1.0.0
+    image: nyttevaerdien/homepage-frontend:1.1.0
     container_name: homepage
     environment:
       - KEYSTORE_PASSWORD=${KEYSTORE_PASSWORD}
     ports:
-      - "443:8080"
+      - "443:443"
+    networks:
+      - homepage-app-network
+    depends_on:
+      - api
+  api:
+    image: nyttevaerdien/homepage-api:1.1.0
+    container_name: api
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - "8080:8080"
+    networks:
+      - homepage-app-network
+    depends_on:
+      - db
+  db:
+    image: 'postgres:13.1-alpine'
+    restart: unless-stopped
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - homepage-app-network
+networks:
+  homepage-app-network:
+    driver: bridge
