@@ -1,0 +1,8 @@
+services:
+  homepage:
+    image: nyttevaerdien/homepage:1.0.0
+    container_name: homepage
+    environment:
+      - KEYSTORE_PASSWORD=${KEYSTORE_PASSWORD}
+    ports:
+      - "443:8080"
