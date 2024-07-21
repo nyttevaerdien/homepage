@@ -24,10 +24,12 @@
 </a>
 <br>
 <h3>Obsession of the week: <span th:text="${obsession.name}"></span></h3>
-<iframe width="560" height="315" th:src="${obsession.url}"
-		title="YouTube video player" frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-		referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="display: flex; justify-content: center;">
+	<iframe th:src="${obsession.url}" title="YouTube video player" frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+			style="aspect-ratio: 16 / 9; width: 100% !important;"></iframe>
+</div>
 </body>
 </html>
 
