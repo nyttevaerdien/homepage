@@ -1,0 +1,18 @@
+meta {
+  name: get obsession (local)
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8080/obsession
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "name": "World of Pleasure",
+    "url": "https://www.youtube.com/embed/4C49NS9TsPc?si=k8k7UqZ2U6BfYJwR"
+  }
+}
