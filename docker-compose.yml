@@ -2,6 +2,7 @@ services:
   homepage:
     image: nyttevaerdien/homepage-frontend:1.2.0
     container_name: homepage
+    restart: unless-stopped
     environment:
       - KEYSTORE_PASSWORD=${KEYSTORE_PASSWORD}
     ports:
@@ -13,8 +14,9 @@ services:
   api:
     image: nyttevaerdien/homepage-api:1.2.0
     container_name: api
+    restart: unless-stopped
     volumes:
-      - db:db
+      - "./db:/db"
     ports:
       - "8080:8080"
     networks:
