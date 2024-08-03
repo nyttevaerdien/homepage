@@ -6,7 +6,13 @@ To build the artifacts run
 `bash build.sh`
 
 To start the application run
-`docker compose up -d`
+`cd configuration
+docker compose up -d`
 
 To open requests first install bruno
 `brew install --cask bruno`
+
+To apply configuration on server run
+`cd configuration
+scp -r . root@217.160.164.219:app/`
+
