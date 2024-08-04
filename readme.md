@@ -1,7 +1,7 @@
 My homepage application. Consists of 3 services:
 - nginx: used as reverse proxy
 - api: api for some homepage data (e.g. current obsession)
-- frontend: simple thymeleaf app serving static html
+- frontend: react app serving static html
 
 To build the artifacts run
 `bash build.sh`
