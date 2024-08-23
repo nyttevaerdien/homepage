@@ -1,10 +1,6 @@
 # frontend/Dockerfile
 FROM node:22.5.1-alpine AS prod
 
-# Set build arguments for environment variables
-ARG REACT_APP_API_USERNAME
-ARG REACT_APP_API_PASSWORD
-
 WORKDIR /app
 
 COPY . /app
