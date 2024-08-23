@@ -1,7 +1,44 @@
-./gradlew --stop
-./gradlew --build-file api/build.gradle clean jibDockerBuild
-docker push nyttevaerdien/homepage-api:2.0.0
+#!/bin/bash
 
-cd frontend
-docker build . -t nyttevaerdien/homepage-frontend:2.0.0
-docker push nyttevaerdien/homepage-frontend:2.0.0
+# Function to retrieve version number from build.gradle
+get_version() {
+    echo "$(grep "^version" build.gradle | awk -F= '{print $2}' | tr -d '[:space:]' | sed 's/^"\(.*\)"$/\1/')"
+    }
+
+# Check if a parameter was passed
+if [ -z "$1" ]; then
+    echo "Usage: $0 <semicolon-separated service names>"
+    exit 1
+fi
+
+# Read the semicolon-separated list of services
+IFS=';' read -ra SERVICES <<< "$1"
+
+VERSION=$(echo "$(get_version)" | cut -c 2- | rev | cut -c 2- | rev)
+echo "Version is $VERSION"
+
+# Loop through each service and execute corresponding command
+for SERVICE in "${SERVICES[@]}"; do
+    case "$SERVICE" in
+        api)
+            echo "building api..."
+            ./gradlew --stop
+            ./gradlew --build-file api/build.gradle clean jibDockerBuild
+            ;;
+        frontend)
+            echo "building frontend..."
+            cd frontend
+            docker build . -t nyttevaerdien/homepage-frontend:$VERSION
+            cd ..
+            ;;
+        push_images)
+            echo "pushing docker images..."
+            docker push nyttevaerdien/homepage-api:$VERSION
+            docker push nyttevaerdien/homepage-frontend:$VERSION
+            ;;
+        *)
+            echo "Unknown service: $SERVICE"
+            ;;
+    esac
+done
+
