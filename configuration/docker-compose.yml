@@ -8,6 +8,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/static:/etc/nginx/static
       - ./certs:/certs:ro
     networks:
       - homepage-app-network
