@@ -11,6 +11,9 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+API_USERNAME="$2"
+API_PASSWORD="$3"
+
 # Read the semicolon-separated list of services
 IFS=';' read -ra SERVICES <<< "$1"
 
@@ -30,8 +33,8 @@ for SERVICE in "${SERVICES[@]}"; do
             cd frontend
 
             ENV_FILE=".env"
-            echo "REACT_APP_API_USERNAME=${API_USERNAME}" > $ENV_FILE
-            echo "REACT_APP_API_PASSWORD=${API_PASSWORD}" >> $ENV_FILE
+            echo "REACT_APP_API_USERNAME=$API_USERNAME" > $ENV_FILE
+            echo "REACT_APP_API_PASSWORD=$API_PASSWORD" >> $ENV_FILE
 
             docker build . -t nyttevaerdien/homepage-frontend:$VERSION
             cd ..
