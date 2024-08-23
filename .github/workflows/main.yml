@@ -23,7 +23,7 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
 
       - name: Run Build
-        run: bash build.sh api;frontend;push_images
+        run: bash build.sh "api;frontend;push_images"
   deploy:
     needs: build
     runs-on: ubuntu-latest
