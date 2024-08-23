@@ -13,11 +13,11 @@ services:
     networks:
       - homepage-app-network
     depends_on:
-      - homepage
+      - frontend
       - api
-  homepage:
+  frontend:
     image: nyttevaerdien/homepage-frontend:2.0.0
-    container_name: homepage
+    container_name: frontend
     restart: unless-stopped
     ports:
       - "3000:3000"
