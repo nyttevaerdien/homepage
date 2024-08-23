@@ -17,7 +17,22 @@ class App extends Component {
 
     componentDidMount() {
         const url = "https://kotprotiv.dev:8080/obsession";
-        fetch(url)
+        const username = process.env.REACT_APP_API_USERNAME;
+        const password = process.env.REACT_APP_API_PASSWORD;
+
+        console.log(`env: ${JSON.stringify(process.env, null, 2)}`) //todo remove
+
+        const credentials = btoa(`${username}:${password}`);
+
+        const fetchOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Basic ${credentials}`,
+                'Content-Type': 'application/json',
+            }
+        };
+
+        fetch(url, fetchOptions)
             .then(response => response.json())
             .then(result => {
                 this.setState({
