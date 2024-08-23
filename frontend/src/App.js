@@ -16,7 +16,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const url = "http://api:8080/obsession";
+        const url = "https://kotprotiv.dev:8080/obsession";
         fetch(url)
             .then(response => response.json())
             .then(result => {

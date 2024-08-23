@@ -4,7 +4,7 @@ My homepage application. Consists of 3 services:
 - frontend: react app serving static html
 
 To build the artifacts run
-`bash build.sh`
+`./build.sh "api;frontend;push_images"`
 
 To start the application run
 `cd configuration && docker compose up -d`
