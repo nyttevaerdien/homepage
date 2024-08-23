@@ -20,8 +20,6 @@ class App extends Component {
         const username = process.env.REACT_APP_API_USERNAME;
         const password = process.env.REACT_APP_API_PASSWORD;
 
-        console.log(`env: ${JSON.stringify(process.env, null, 2)}`) //todo remove
-
         const credentials = btoa(`${username}:${password}`);
 
         const fetchOptions = {
