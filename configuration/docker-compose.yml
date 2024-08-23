@@ -16,7 +16,7 @@ services:
       - frontend
       - api
   frontend:
-    image: nyttevaerdien/homepage-frontend:2.0.0
+    image: nyttevaerdien/homepage-frontend:2.1.0
     container_name: frontend
     restart: unless-stopped
     ports:
@@ -26,7 +26,7 @@ services:
     depends_on:
       - api
   api:
-    image: nyttevaerdien/homepage-api:2.0.0
+    image: nyttevaerdien/homepage-api:2.1.0
     container_name: api
     restart: unless-stopped
     volumes:
@@ -35,8 +35,8 @@ services:
       - "8080:8080"
     environment:
       SSL_KEY_PASSWORD: ${SSL_KEY_PASSWORD}
-      APP_USERNAME: ${APP_USERNAME}
-      APP_PASSWORD: ${APP_PASSWORD}
+      API_USERNAME: ${API_USERNAME}
+      API_PASSWORD: ${API_PASSWORD}
     networks:
       - homepage-app-network
 networks:

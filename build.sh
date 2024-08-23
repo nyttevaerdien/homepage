@@ -28,6 +28,11 @@ for SERVICE in "${SERVICES[@]}"; do
         frontend)
             echo "building frontend..."
             cd frontend
+
+            ENV_FILE=".env"
+            echo "REACT_APP_API_USERNAME=${API_USERNAME}" > $ENV_FILE
+            echo "REACT_APP_API_PASSWORD=${API_PASSWORD}" >> $ENV_FILE
+
             docker build . -t nyttevaerdien/homepage-frontend:$VERSION
             cd ..
             ;;
