@@ -16,9 +16,10 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const url = "https://kotprotiv.dev:8080/obsession";
+        const base_url = process.env.REACT_APP_API_BASE_URL;
         const username = process.env.REACT_APP_API_USERNAME;
         const password = process.env.REACT_APP_API_PASSWORD;
+        const url = `${base_url}/obsession`;
 
         const credentials = btoa(`${username}:${password}`);
 
@@ -45,11 +46,13 @@ class App extends Component {
         console.log('obsession', this.state);
         return (
             <div>
-                <h2>As you can see, I am not a frontend dev</h2>
-                <br/>
-                <h3>Some links</h3>
+                <h1>As you can see, I am not a frontend dev</h1>
+                <h2>Some links</h2>
                 <a rel="me" href="https://bsky.app/profile/kotprotiv.bsky.social">
                     <img src={bluesky_logo} className="img-with-margin" alt="bluesky logo"></img>
+                </a>
+                <a rel="me" href="https://github.com/kotprotiv">
+                    <img src={github_logo} className="img-with-margin" alt="github logo"></img>
                 </a>
                 <a rel="me" href="https://instagram.com/kotprotiv">
                     <img src={instagram_logo} className="img-with-margin" alt="instagram logo"></img>
@@ -60,11 +63,9 @@ class App extends Component {
                 <a rel="me" href="https://mastodon.social/@kotprotiv">
                     <img src={mastodon_logo} className="img-with-margin" alt="mastodon logo"></img>
                 </a>
-                <a rel="me" href="https://github.com/kotprotiv">
-                    <img src={github_logo} className="img-with-margin" alt="github logo"></img>
-                </a>
                 <br/>
-                <h3>Obsession of the week: {this.state.name}</h3>
+                <h2>Obsession of the week</h2>
+                <h3>{this.state.name}</h3>
                 <div className="iframe-video-player">
                     <iframe src={this.state.url} title="YouTube video player" frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
