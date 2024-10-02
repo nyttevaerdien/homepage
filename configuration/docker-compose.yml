@@ -16,7 +16,7 @@ services:
       - frontend
       - api
   frontend:
-    image: nyttevaerdien/homepage-frontend:2.2.0
+    image: nyttevaerdien/homepage-frontend:2.3.0
     container_name: frontend
     restart: unless-stopped
     ports:
@@ -26,7 +26,7 @@ services:
     depends_on:
       - api
   api:
-    image: nyttevaerdien/homepage-api:2.2.0
+    image: nyttevaerdien/homepage-api:2.3.0
     container_name: api
     restart: unless-stopped
     volumes:
