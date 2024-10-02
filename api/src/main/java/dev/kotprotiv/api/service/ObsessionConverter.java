@@ -1,7 +1,7 @@
 package dev.kotprotiv.api.service;
 
-import dev.kotprotiv.dto.ObsessionDto;
 import dev.kotprotiv.api.model.Obsession;
+import dev.kotprotiv.api.model.ObsessionDto;
 import org.springframework.stereotype.Service;
 
 @Service("obsessionConverter")
