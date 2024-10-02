@@ -22,4 +22,4 @@ jobs:
           java-version: '21'
 
       - name: Run build
-        run: ./gradlew build
+        run: cd api && ./gradlew build

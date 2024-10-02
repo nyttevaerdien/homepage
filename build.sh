@@ -26,8 +26,10 @@ for SERVICE in "${SERVICES[@]}"; do
     case "$SERVICE" in
         api)
             echo "building api..."
+            cd api
             ./gradlew --stop
             ./gradlew --build-file api/build.gradle clean jibDockerBuild
+            cd ..
             ;;
         frontend)
             echo "building frontend..."

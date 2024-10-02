@@ -1,5 +1,0 @@
-rootProject.name = 'homepage'
-
-include 'frontend'
-include 'api'
-include 'model'

@@ -1,6 +1,6 @@
 package dev.kotprotiv.api.controller;
 
-import dev.kotprotiv.dto.ObsessionDto;
+import dev.kotprotiv.api.model.ObsessionDto;
 import dev.kotprotiv.api.service.ObsessionConverter;
 import dev.kotprotiv.api.service.ObsessionService;
 import org.springframework.web.bind.annotation.*;
