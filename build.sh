@@ -28,7 +28,7 @@ for SERVICE in "${SERVICES[@]}"; do
             echo "building api..."
             cd api
             ./gradlew --stop
-            ./gradlew --build-file api/build.gradle clean jibDockerBuild
+            ./gradlew clean jibDockerBuild
             cd ..
             ;;
         frontend)
