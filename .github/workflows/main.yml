@@ -42,12 +42,16 @@ jobs:
 
       - name: Deploy configuration
         run: |
+          ENV_FILE="configuration/.env"
+          echo "SSL_KEY_PASSWORD=$SSL_KEY_PASSWORD" > $ENV_FILE
+          echo "API_USERNAME=$API_USERNAME" >> $ENV_FILE
+          echo "API_USERNAME=$API_PASSWORD" >> $ENV_FILE
           scp -r configuration/* root@${{ secrets.SSH_HOST }}:app/
           
-      - name: Deploy app
-        run: |
-          ssh root@${{ secrets.SSH_HOST }} "
-            cd ./app
-            docker compose pull  && docker compose up -d
-            "
+#      - name: Deploy app
+#        run: |
+#          ssh root@${{ secrets.SSH_HOST }} "
+#            cd ./app
+#            docker compose pull  && docker compose up -d
+#            "
 
