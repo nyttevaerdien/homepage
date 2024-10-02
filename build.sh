@@ -2,7 +2,7 @@
 
 # Function to retrieve version number from build.gradle
 get_version() {
-    echo "$(grep "^version" build.gradle | awk -F= '{print $2}' | tr -d '[:space:]' | sed 's/^"\(.*\)"$/\1/')"
+    echo "$(grep "^version" api/build.gradle | awk -F= '{print $2}' | tr -d '[:space:]' | sed 's/^"\(.*\)"$/\1/')"
     }
 
 # Check if a parameter was passed
