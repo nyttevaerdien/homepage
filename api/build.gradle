@@ -39,7 +39,7 @@ jib {
 		image = 'eclipse-temurin:21-jdk-alpine'
 	}
 	to {
-		image = 'nyttevaerdien/' + rootProject.name + '-' + name + ':' + rootProject.version
+		image = 'nyttevaerdien/homepage-api' + ':' + rootProject.version
 	}
 	container {
 		creationTime = 'USE_CURRENT_TIMESTAMP'
