@@ -7,11 +7,11 @@ To build the artifacts run
 `./build.sh "api;frontend;push_images"`
 
 To start the application run
-`cd configuration && docker compose up -d`
+`docker compose up -f configuration/docker-compose.yml -d`
 
 To open requests first install bruno
 `brew install --cask bruno`
 
 To apply configuration on server run
-`cd configuration && scp -r . root@217.160.164.219:app/`
+`scp -r configuration/* root@217.160.164.219:app/`
 
