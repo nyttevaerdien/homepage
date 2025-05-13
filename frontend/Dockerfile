@@ -9,7 +9,7 @@ RUN npm install -g serve
 
 RUN npm install
 
-RUN npm run build
+RUN NODE_OPTIONS=--openssl-legacy-provider npm run build
 
 # Expose the port the application will run on
 EXPOSE 3000
